@@ -1,0 +1,228 @@
+/* @shivansh/mini-app-ui tokens — override in the host app */
+:root {
+  --mau-ink: #10140f;
+  --mau-ink-soft: #4a5a48;
+  --mau-mist: #e7efe4;
+  --mau-paper: #f2f6ef;
+  --mau-surface: rgba(255, 255, 255, 0.72);
+  --mau-accent: #c8f542;
+  --mau-accent-ink: #1a2a0a;
+  --mau-accent-deep: #9bc41f;
+  --mau-line: rgba(16, 20, 15, 0.12);
+  --mau-good: #1f6b3a;
+  --mau-bad: #b42318;
+  --mau-radius: 1rem;
+  --mau-radius-lg: 1.35rem;
+  --mau-font: inherit;
+}
+
+.mau-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 0;
+  border-radius: var(--mau-radius);
+  padding: 0.85rem 1.15rem;
+  font-family: var(--mau-font);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.mau-btn:active {
+  transform: scale(0.98);
+}
+
+.mau-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.mau-btn-primary {
+  background: var(--mau-accent);
+  color: var(--mau-accent-ink);
+  box-shadow: 0 10px 28px rgba(155, 196, 31, 0.28);
+}
+
+.mau-btn-primary:hover {
+  background: var(--mau-accent-deep);
+}
+
+.mau-btn-ink {
+  background: var(--mau-ink);
+  color: var(--mau-accent);
+}
+
+.mau-btn-ghost {
+  background: transparent;
+  border: 1px solid var(--mau-line);
+  color: var(--mau-ink);
+}
+
+.mau-text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.35rem 0.15rem;
+  border: 0;
+  background: transparent;
+  color: var(--mau-ink);
+  font-family: var(--mau-font);
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--mau-accent-deep);
+  cursor: pointer;
+  border-radius: 0.35rem;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease, background 0.15s ease;
+}
+
+.mau-text-link:hover {
+  color: var(--mau-accent-ink);
+  text-decoration-color: var(--mau-ink);
+  background: rgba(200, 245, 66, 0.22);
+}
+
+.mau-text-link:focus-visible {
+  outline: 2px solid var(--mau-accent-deep);
+  outline-offset: 3px;
+}
+
+.mau-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--mau-ink-soft);
+  font-family: var(--mau-font);
+}
+
+.mau-loader-orbit {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  border: 2.5px solid rgba(16, 20, 15, 0.15);
+  border-top-color: var(--mau-accent-deep);
+  animation: mau-spin 0.7s linear infinite;
+}
+
+.mau-loader-label {
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+@keyframes mau-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mau-select-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid var(--mau-line);
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: var(--mau-radius);
+  padding: 0.85rem 1rem;
+  font-family: var(--mau-font);
+  font-weight: 600;
+  color: var(--mau-ink);
+  cursor: pointer;
+}
+
+.mau-select-trigger:focus-visible {
+  outline: none;
+  border-color: var(--mau-accent-deep);
+  box-shadow: 0 0 0 3px rgba(200, 245, 66, 0.35);
+}
+
+.mau-select-content {
+  z-index: 60;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid var(--mau-line);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 18px 40px rgba(16, 20, 15, 0.16);
+  padding: 0.35rem;
+}
+
+.mau-select-item {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--mau-ink);
+  outline: none;
+}
+
+.mau-select-item[data-highlighted] {
+  background: var(--mau-ink);
+  color: var(--mau-accent);
+}
+
+.mau-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(16, 20, 15, 0.45);
+}
+
+.mau-sheet-content {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 51;
+  margin-inline: auto;
+  display: flex;
+  max-height: min(92dvh, 40rem);
+  width: 100%;
+  max-width: 32rem;
+  flex-direction: column;
+  border-radius: 1.75rem 1.75rem 0 0;
+  border: 1px solid var(--mau-line);
+  border-bottom: 0;
+  background: var(--mau-surface);
+  backdrop-filter: blur(10px);
+  padding: 1.25rem;
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -12px 40px rgba(16, 20, 15, 0.18);
+  font-family: var(--mau-font);
+  color: var(--mau-ink);
+}
+
+@media (min-width: 768px) {
+  .mau-sheet-content {
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    border-radius: 1.75rem;
+    border-bottom: 1px solid var(--mau-line);
+    max-height: min(85vh, 40rem);
+  }
+}
+
+.mau-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mau-ink-soft);
+  margin-bottom: 0.4rem;
+}

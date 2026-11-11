@@ -54,4 +54,13 @@ type SheetProps = {
 };
 declare function Sheet({ open, title, onClose, children, className }: SheetProps): React.JSX.Element;
 
-export { Button, type ButtonProps, Loader, type LoaderProps, Select, type SelectOption, type SelectProps, Sheet, type SheetProps, TextLink, type TextLinkProps };
+type EmptyStageProps = {
+    title: string;
+    body?: string;
+    action?: React.ReactNode;
+    className?: string;
+};
+/** Wry empty state — one line, optional CTA. Reuse across mini-apps. */
+declare function EmptyStage({ title, body, action, className }: EmptyStageProps): React.JSX.Element;
+
+export { Button, type ButtonProps, EmptyStage, type EmptyStageProps, Loader, type LoaderProps, Select, type SelectOption, type SelectProps, Sheet, type SheetProps, TextLink, type TextLinkProps };

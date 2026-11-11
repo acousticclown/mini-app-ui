@@ -1,19 +1,23 @@
-/* @shivansh/mini-app-ui tokens — override in the host app */
+/* @shivansh/mini-app-ui tokens — Stub Ledger defaults; override in the host app */
 :root {
-  --mau-ink: #10140f;
-  --mau-ink-soft: #4a5a48;
-  --mau-mist: #e7efe4;
-  --mau-paper: #f2f6ef;
-  --mau-surface: rgba(255, 255, 255, 0.72);
-  --mau-accent: #c8f542;
-  --mau-accent-ink: #1a2a0a;
-  --mau-accent-deep: #9bc41f;
-  --mau-line: rgba(16, 20, 15, 0.12);
-  --mau-good: #1f6b3a;
+  --mau-ink: #0e1c16;
+  --mau-ink-soft: #4a5f54;
+  --mau-mist: #d7e4dc;
+  --mau-paper: #e4ede7;
+  --mau-surface: rgba(255, 255, 255, 0.78);
+  --mau-accent: #ff4f1a;
+  --mau-accent-ink: #1a0b05;
+  --mau-accent-deep: #d63d0c;
+  --mau-line: rgba(14, 28, 22, 0.14);
+  --mau-good: #0f7a58;
   --mau-bad: #b42318;
+  --mau-mark: #12c99a;
   --mau-radius: 1rem;
   --mau-radius-lg: 1.35rem;
   --mau-font: inherit;
+  --mau-motion-stamp: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  --mau-motion-sheet: 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  --mau-motion-rise: 560ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mau-btn {
@@ -202,6 +206,18 @@
   box-shadow: 0 -12px 40px rgba(16, 20, 15, 0.18);
   font-family: var(--mau-font);
   color: var(--mau-ink);
+  animation: mau-sheet-up var(--mau-motion-sheet) both;
+}
+
+.mau-sheet-content::before {
+  content: "";
+  display: block;
+  height: 10px;
+  margin: -0.35rem -0.15rem 0.85rem;
+  background-image: radial-gradient(circle at 6px 5px, transparent 5px, var(--mau-mist) 5.5px);
+  background-size: 14px 10px;
+  background-repeat: repeat-x;
+  opacity: 0.95;
 }
 
 @media (min-width: 768px) {
@@ -225,4 +241,64 @@
   text-transform: uppercase;
   color: var(--mau-ink-soft);
   margin-bottom: 0.4rem;
+}
+
+.mau-empty {
+  display: flex;
+  justify-content: center;
+  padding: 1.75rem 0.5rem;
+}
+
+.mau-empty-frame {
+  width: 100%;
+  max-width: 22rem;
+  border: 1.5px dashed var(--mau-line);
+  border-radius: var(--mau-radius-lg);
+  padding: 1.35rem 1.2rem;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.2));
+}
+
+.mau-empty-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--mau-ink);
+}
+
+.mau-empty-body {
+  margin: 0.45rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--mau-ink-soft);
+}
+
+.mau-empty-action {
+  margin-top: 1rem;
+}
+
+@keyframes mau-sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes mau-sheet-up {
+    from {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 12px));
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
 }

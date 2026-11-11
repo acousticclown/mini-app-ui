@@ -155,8 +155,19 @@ function Sheet({ open, title, onClose, children, className }) {
     ] })
   ] }) });
 }
+
+// src/components/EmptyStage.tsx
+import { jsx as jsx6, jsxs as jsxs4 } from "react/jsx-runtime";
+function EmptyStage({ title, body, action, className }) {
+  return /* @__PURE__ */ jsx6("div", { className: cn("mau-empty", className), role: "status", children: /* @__PURE__ */ jsxs4("div", { className: "mau-empty-frame", children: [
+    /* @__PURE__ */ jsx6("p", { className: "mau-empty-title", children: title }),
+    body ? /* @__PURE__ */ jsx6("p", { className: "mau-empty-body", children: body }) : null,
+    action ? /* @__PURE__ */ jsx6("div", { className: "mau-empty-action", children: action }) : null
+  ] }) });
+}
 export {
   Button,
+  EmptyStage,
   Loader,
   Select,
   Sheet,

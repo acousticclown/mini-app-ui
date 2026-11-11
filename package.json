@@ -1,7 +1,7 @@
 {
   "name": "@shivansh/mini-app-ui",
-  "version": "0.1.0",
-  "description": "Shared UI kit for Shivansh's Mini Apps — tokens, Loader, Button, TextLink, Select, Sheet",
+  "version": "0.2.0",
+  "description": "Shared UI kit for Shivansh's Mini Apps — Stub Ledger tokens, Loader, EmptyStage, Button, TextLink, Select, Sheet",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
